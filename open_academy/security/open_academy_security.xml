@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="open_academy_course_group_manager" model="res.groups">
+        <field name="name">OpenAcademy / Manager</field>
+    </record>
+
+    <record id="open_academy_course_rule_manager" model="ir.rule">
+        <field name="name">Write and unlink accesses only for responsibles</field>
+        <field name="model_id" ref="open_academy.model_openacademy_course"/>
+        <field name="groups" eval="[Command.link(ref('base.group_user'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="True" />
+        <field name="domain_force">['|',('responsible_id','=',user.id),('responsible_id','=',False)]</field>
+    </record>
+</odoo>

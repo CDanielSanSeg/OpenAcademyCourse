@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="open_academy_session_report" model="ir.actions.report">
+        <field name="name">Session Report</field>
+        <field name="model">openacademy.session</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="multi">True</field>
+        <field name="report_name">open_academy.session_report_template</field>
+        <field name="report_file">open_academy.session_report_template</field>
+        <field name="binding_model_id" ref="open_academy.model_openacademy_session"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="session_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 t-field="doc.name"></h1>
+                        <div>
+                            <div class="col-auto">
+                                <strong>Start date: </strong>
+                                <p t-field="doc.start_date" />
+                            </div>
+                            <div class="col-auto">
+                                <strong>End date: </strong>
+                                <p t-field="doc.end_date" />
+                            </div>
+                        </div>
+                        <br />
+                        <h2>Attendees</h2>
+                        <table class="table table-sm">
+                            <tbody>
+                                <t t-foreach="doc.attendees_ids" t-as="attendee">
+                                    <tr>
+                                        <td>
+                                            <span t-field="attendee.name" />
+                                            <br />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
