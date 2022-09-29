@@ -1,0 +1,22 @@
+<odoo>
+    <record id="coursef1" model="openacademy.course">
+        <field name="title">My first title</field>
+        <field name="description">My first description</field>
+    </record>
+    <record id="course_f2" model="openacademy.course">
+        <field name="title">My second title</field>
+        <field name="description">My second description</field>
+    </record>
+    <record id="course_f3" model="openacademy.course">
+        <field name="title">My third title</field>
+        <field name="description">My third description</field>
+    </record>
+    <record id="course_f4" model="openacademy.course">
+        <field name="title">My four title</field>
+        <field name="description">My four description</field>
+    </record>
+    <record id="course_f5" model="openacademy.course">
+        <field name="title">My five title</field>
+        <field name="description">My five description</field>
+    </record>
+</odoo>
