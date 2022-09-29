@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Action of the view configuration -->
+    <record model="ir.actions.act_window" id="session_action_list">
+        <field name="name">Sessions</field>
+        <field name="res_model">openacademy.session</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+    <!-- This is tree view configuration -->
+    <record model="ir.ui.view" id="session_view_tree">
+        <field name="name">openacademy.session_view_tree</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="name" />
+                <field name="description"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="number_of_seats"/>
+            </tree>
+        </field>
+    </record>
+    <!-- notebook configuration -->
+    <record model="ir.ui.view" id="session_view_notebook">
+        <field name="name">openacademy.session.view_form</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="session">
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <notebook>
+                        <!-- Fields as rows -->
+                        <page name="Session information" string="Session information">
+                            <group colspan="10" col="4">
+                                <field name="description" />
+                                <newline /> 
+                                <field name="start_date"/>
+                                <newline /> 
+                                <field name="duration"/>
+                                <newline /> 
+                                <field name="number_of_seats"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
