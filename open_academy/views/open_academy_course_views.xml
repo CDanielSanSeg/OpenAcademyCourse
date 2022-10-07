@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <!-- Action of the view configuration -->
-    <record model="ir.actions.act_window" id="course_action_list">
+    <record id="open_academy_course_action_list" model="ir.actions.act_window">
         <field name="name">Courses</field>
         <field name="res_model">openacademy.course</field>
         <field name="view_mode">tree,kanban,form</field>
     </record>
-    <!-- This is tree view configuration -->
-    <record model="ir.ui.view" id="course_view_tree">
-        <field name="name">openacademy.course_view_tree</field>
+    <!-- tree configuration -->
+    <record id="open_academy_course_tree_view" model="ir.ui.view">
+        <field name="name">openacademy.course_tree_view</field>
         <field name="model">openacademy.course</field>
         <field name="arch" type="xml">
             <tree>
@@ -18,8 +18,8 @@
         </field>
     </record>
     <!-- notebook configuration -->
-    <record model="ir.ui.view" id="course_view_notebook">
-        <field name="name">openacademy.course.view_form</field>
+    <record id="open_academy_course_form_view" model="ir.ui.view">
+        <field name="name">openacademy.course.form.view</field>
         <field name="model">openacademy.course</field>
         <field name="arch" type="xml">
             <form>
@@ -31,6 +31,12 @@
                         <page name="Course information" string="Course information">
                             <group colspan="10" col="4">
                                 <field name="description" />
+                                <field name="responsible_id"/>
+                            </group>
+                        </page>
+                        <page string="Sessions">
+                            <group colspan="10" col="4">
+                                <field name="sessions_ids"/>
                             </group>
                         </page>
                     </notebook>
@@ -39,13 +45,20 @@
         </field>
     </record>
     <!-- search configuration -->
-    <record model="ir.ui.view" id="course_view_search">
-        <field name="name">openacademy.course_view_search</field>
+    <record id="course_search_view" model="ir.ui.view">
+        <field name="name">openacademy.course.search.view</field>
         <field name="model">openacademy.course</field>
         <field name="arch" type="xml">
             <search>
                 <field name="title"/>
                 <field name="description"/>
+                <field name="responsible_id"/>
+                <field name="sessions_ids"/>
+                <filter name="my_courses" string="My courses" domain="[('responsible_id', '=', uid)]" />
+                <group string="Group by responsible">
+                    <filter name="group_by_responsible" string="Responsible"
+                            context="{'group_by': 'responsible_id'}"/>
+                </group>
             </search>
         </field>
     </record>

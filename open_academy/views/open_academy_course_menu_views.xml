@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem
+    <menuitem 
         id="open_academy_root_menu"
         name="Open Academy"
         sequence="1"
@@ -9,14 +9,14 @@
         id="open_academy_course_menu"
         name="Courses"
         sequence="2"
-        parent='open_academy_root_menu'
-        action='open_academy.course_action_list'
+        action="open_academy_course_action_list"
+        parent="open_academy_root_menu"
     />
     <menuitem
         id="open_academy_session_menu"
         name="Sessions"
         sequence="3"
-        parent='open_academy_root_menu'
-        action='open_academy.session_action_list'
+        action="open_academy_session_action_list"
+        parent="open_academy_root_menu"
     />
 </odoo>
