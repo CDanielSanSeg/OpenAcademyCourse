@@ -17,9 +17,11 @@
     'data': [
         # Check the order, 1. security, 2 views, 3 menus
         'security/ir.model.access.csv',
+        'security/open_academy_security.xml',
         'views/open_academy_course_views.xml',
         'views/open_academy_session_views.xml',
         'views/open_academy_course_menu_views.xml',
+        'views/res_partner_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
