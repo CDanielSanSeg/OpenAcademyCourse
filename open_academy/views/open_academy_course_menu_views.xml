@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem 
-        id="open_academy_root_menu"
-        name="Open Academy"
-        sequence="1"
-    />
-    <menuitem
-        id="open_academy_course_menu"
-        name="Courses"
-        sequence="2"
-        action="open_academy_course_action_list"
-        parent="open_academy_root_menu"
-    />
-    <menuitem
-        id="open_academy_session_menu"
-        name="Sessions"
-        sequence="3"
-        action="open_academy_session_action_list"
-        parent="open_academy_root_menu"
-    />
+        <menuitem 
+                id="open_academy_root_menu"
+                name="Open Academy"
+                sequence="1"
+        />
+        <menuitem 
+                id="open_academy_dashboard_menu"
+                name="Dashboard"
+                sequence="2"
+                parent="open_academy_root_menu"
+                action="open_academy_dashboard_action"
+        />
+        <menuitem
+                id="open_academy_course_menu"
+                name="Courses"
+                sequence="3"
+                action="open_academy_course_action_list"
+                parent="open_academy_root_menu"
+        />
+        <menuitem
+                id="open_academy_session_menu"
+                name="Sessions"
+                sequence="4"
+                action="open_academy_session_action_list"
+                parent="open_academy_root_menu"
+        />
 </odoo>

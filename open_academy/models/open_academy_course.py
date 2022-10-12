@@ -24,6 +24,7 @@ class Course(models.Model):
         ),
     ]
 
+    ''' This function copy a course '''
     def copy(self, default=None):
         default = dict(default or {})
         default.update({'title': f'Copy of {self.title}'})

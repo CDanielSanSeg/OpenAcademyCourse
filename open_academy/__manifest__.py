@@ -12,16 +12,22 @@
     'category': 'Uncategorized',
     'version': '15.0.1.0.0',
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': [
+        'base',
+        'board',
+    ],
     # always loaded
     'data': [
-        # Check the order, 1. security, 2 views, 3 menus
-        'security/ir.model.access.csv',
+        # Check the order, 1. security, 2 views, 3 menus, 4 reports
         'security/open_academy_security.xml',
+        'security/ir.model.access.csv',
         'views/open_academy_course_views.xml',
         'views/open_academy_session_views.xml',
-        'views/open_academy_course_menu_views.xml',
         'views/res_partner_views.xml',
+        'views/open_academy_dashboard.xml',
+        'wizard/open_academy_wizard_view.xml',
+        'views/open_academy_course_menu_views.xml',
+        'report/open_academy_session_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
