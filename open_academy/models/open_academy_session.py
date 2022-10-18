@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import _, models, fields, api
 from odoo.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
 
@@ -52,21 +52,21 @@ class Session(models.Model):
     def _check_instructor_not_in_attendees(self):
         for record in self.filtered('instructor_id'):
             if record.instructor_id in self.attendees_ids:
-                raise ValidationError(f'The instructor "{record.instructor_id.name}" may not be an attendee')
+                raise ValidationError(_('An instructor cannot be an assistant.'))
 
     @api.onchange("number_of_seats", "attendees_ids")
     def _onchange_number_seats(self):
         if self.number_of_seats <= 0:
             return {
                 'warning': {
-                    'title': ('Incorrect seats value.'),
-                    'message': ('The number of available seats must be greater than 0.'),
+                    'title': _('Incorrect seats value.'),
+                    'message': _('The number of available seats must be greater than 0.'),
                 }
             }
         if len(self.attendees_ids) > self.number_of_seats:
             return {
                 'warning': {
-                    'title': ('Attendees exceed the number of seats.'),
-                    'message': ('There are not enough seats for all attendees.'),
+                    'title': _('Attendees exceed the number of seats.'),
+                    'message': _('There are not enough seats for all attendees.'),
                 }
             }

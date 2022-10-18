@@ -19,7 +19,7 @@ class GlobalTestOpenAcademySession(TransactionCase):
         can't be an attendee'"""
         with self.assertRaisesRegex(
             ValidationError,
-            f'The instructor "{self.user_partner_demo.name}" may not be an attendee'
+            'An instructor cannot be an assistant.'
         ):
             self.session.create(
                 {
