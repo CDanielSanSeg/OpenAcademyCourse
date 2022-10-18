@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import _, models, fields
 
 
 class Course(models.Model):
@@ -9,18 +9,18 @@ class Course(models.Model):
     title = fields.Char(required=True)
     description = fields.Text()
     responsible_id = fields.Many2one('res.users')
-    sessions_ids = fields.One2many("openacademy.session", "course_id", string='Sessions')
+    sessions_ids = fields.One2many("openacademy.session", "course_id")
 
     _sql_constraints = [
         (
             'check_course_diferente_to_description',
             'CHECK(title != description)',
-            'The course description cannot be the same as the course name.'
+            _('The course description cannot be the same as the course name.')
         ),
         (
             'check_course_unique',
             'UNIQUE(title)',
-            'This title already exist.'
+            _('This title already exist.')
         ),
     ]
 
